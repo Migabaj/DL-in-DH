@@ -43,7 +43,11 @@ This project aims to fine-tune a German GPT-2 model on German plays, enabling th
 Training the model requires substantial computational resources, such as Google Colab or a powerful GPU.
 
 ## Colaborators
-...
+
+Quian Liu,
+Jeremy Büdinger,
+Mikhail Sonkin,
+Manuel John
 
 ## License
 
