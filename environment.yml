@@ -1,0 +1,13 @@
+name: dl-in-dh
+channels:
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.11
+  - pytorch::torchaudio
+  - pytorch::pytorch
+  - pytorch::pytorch-cuda=11.7
+  - pytorch::torchvision
+  - transformers
+  - pandas
