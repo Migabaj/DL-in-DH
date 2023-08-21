@@ -17,6 +17,8 @@ This project aims to fine-tune a German GPT-2 model on German plays, enabling th
 - Linux distribution (for automated setup using `build` script)
 - Python 3.11 (if manual installation is required)
 - Anaconda environment (if manual installation is required)
+- GPU from NVIDIA (if training the model locally)
+- Access to Google Colab (if training the model on Google Colab)
 
 ### Automated Setup (Linux)
 
@@ -37,6 +39,10 @@ This project aims to fine-tune a German GPT-2 model on German plays, enabling th
 1. Use `data-collection.ipynb` to gather and preprocess training data.
 2. Train the model using `train_model.ipynb`.
 3. Generate text using the fine-tuned model with `prompting.ipynb`.
+
+## Scene Generation (Prototype)
+
+After training the model, you can use the `scene_generation.ipynb` notebook to generate a scene based on a given prompt using the gradio interface. Run the notebook and click on the link that appears in the output. This will open the interface in a new tab. 
 
 ## Note
 
