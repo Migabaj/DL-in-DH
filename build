@@ -4,7 +4,7 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 echo -e ${GREEN}Downloading and installing Anaconda...${NC}
 hash wget 2>/dev/null || { echo >&2 "This process requires wget but it's not installed."; read -p "Press ENTER to abort"; echo "Aborting."; exit 1; }
-wget https://repo.anaconda.com/archive/Anaconda3-latest-Linux-x86_64.sh
+wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
 prefix=""
 if [[ $(hostname -f) != *"uni-saarland.de" ]]; then
     read -ep $'Anaconda3 will now be installed into this location:\n${HOME}anaconda3\n\nPress enter to confirm or specify another location: ' prefix
