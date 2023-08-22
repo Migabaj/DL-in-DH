@@ -1,4 +1,4 @@
-# DL-in-DH
+# Automatic Generation of German Dramatic Dialogue
 
 This project aims to fine-tune a German GPT-2 model on German plays, enabling the generation of coherent and contextually relevant text in the style of theatrical scripts. The resulting model can be used for various creative writing and text generation applications.
 
