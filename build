@@ -19,8 +19,8 @@ else
     prefix="/local/$USER/anaconda3"
 fi
 rm -f Anaconda3-2020.02-Linux-x86_64.sh
+printf "\nAnaconda3 path\nexport PATH=$prefix/bin:$PATH\n" >> $HOME/.bashrc
 source ~/.bashrc 
-export PATH=$prefix/bin:$PATH
 echo -e ${GREEN}Looking for Anaconda3 updates...${NC}
 conda update conda
 echo -e ${GREEN}Creating anaconda environment "dl-in-dh"...${NC}
