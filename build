@@ -17,6 +17,7 @@ if [[ $(hostname -f) != *"uni-saarland.de" ]]; then
 else
     echo -e ${GREEN}host is uni.saarland.de, installing Miniconda3 in /local/$USER/miniconda3${NC}
     bash Miniconda3-latest-Linux-x86_64.sh -bp /local/$USER/miniconda3
+    prefix="/local/$USER/miniconda3"
 fi
 rm -f Miniconda3-latest-Linux-x86_64.sh
 source ~/.bashrc 
