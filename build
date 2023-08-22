@@ -9,16 +9,16 @@ prefix=""
 if [[ $(hostname -f) != *"uni-saarland.de" ]]; then
     read -ep $'Anaconda3 will now be installed into this location:\n${HOME}anaconda3\n\nPress enter to confirm or specify another location: ' prefix
     if [ $prefix != $'\n' ]; then 
-        bash Anaconda3-latest-Linux-x86_64.sh -bp $prefix
+        bash Anaconda3-2020.02-Linux-x86_64.sh -bp $prefix
     else
-        bash Anaconda3-latest-Linux-x86_64.sh -b
+        bash Anaconda3-2020.02-Linux-x86_64.sh -b
     fi
 else
     echo -e ${GREEN}host is uni.saarland.de, installing Anaconda3 in /local/$USER/anaconda3${NC}
-    bash Anaconda3-latest-Linux-x86_64.sh -bp /local/$USER/anaconda3
+    bash Anaconda3-2020.02-Linux-x86_64.sh -bp /local/$USER/anaconda3
     prefix="/local/$USER/anaconda3"
 fi
-rm -f Anaconda3-latest-Linux-x86_64.sh
+rm -f Anaconda3-2020.02-Linux-x86_64.sh
 source ~/.bashrc 
 export PATH=$prefix/bin:$PATH
 echo -e ${GREEN}Looking for Anaconda3 updates...${NC}
