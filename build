@@ -24,7 +24,7 @@ printf "\nAnaconda3 path\nexport PATH=$prefix/bin:$PATH\n" >> $HOME/.bashrc
 conda init
 source ~/.bashrc 
 echo -e ${GREEN}Looking for Anaconda3 updates...${NC}
-conda update conda
+conda update conda -y
 echo -e ${GREEN}Creating anaconda environment "dl-in-dh"...${NC}
 conda env create --file environment.yml
 conda activate dl-in-dh
