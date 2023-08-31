@@ -7,6 +7,7 @@ This project aims to fine-tune a German GPT-2 model on German plays, enabling th
 - `data-collection.ipynb`: Jupyter Notebook for collecting and preprocessing training data from German theater plays.
 - `train_model.ipynb`: Jupyter Notebook for fine-tuning the pretrained GPT-2 model using the preprocessed data.
 - `prompting.ipynb`: Jupyter Notebook for text generation using the trained model.
+- `data-overview.ipynb`: Jupyter Notebook for generating corpora for stylometric analysis.
 - `environment.yml`: Environment file specifying required dependencies.
 - `build`: Shell script for automating project setup on Linux distributions.
 
