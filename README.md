@@ -23,7 +23,7 @@ This project aims to fine-tune a German GPT-2 model on German plays, enabling th
 
 ### Automated Setup (Linux)
 
-1. Clone this repository: `git clone https://github.com/yourusername/DL-in-DH.git`
+1. Clone this repository: `git clone https://github.com/Migabaj/DL-in-DH.git`
 2. Navigate to the project directory: `cd DL-in-DH`
 3. Run the build script: `. ./build`
 
