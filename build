@@ -2,25 +2,35 @@
 
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
-echo -e ${GREEN}Downloading and installing Anaconda...${NC}
-hash wget 2>/dev/null || { echo >&2 "This process requires wget but it's not installed."; read -p "Press ENTER to abort"; echo "Aborting."; exit 1; }
-# wget https://repo.anaconda.com/archive/Anaconda3-2023.07-1-Linux-x86_64.sh
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-if [[ $(hostname -f) != *"uni-saarland.de" ]]; then
-    read -ep $'Anaconda3 will now be installed into this location:\n/home/CE/manuelj/anaconda3\n\nPress enter to confirm or specify another location: ' prefix
-    if [ $prefix != $'\n' ]; then 
-        bash Anaconda3-2023.07-1-Linux-x86_64.sh -bp $prefix
+
+install_conda() {
+    echo -e ${GREEN}Downloading and installing Anaconda...${NC}
+    hash wget 2>/dev/null || { echo >&2 "This process requires wget but it's not installed."; read -p "Press ENTER to abort"; echo "Aborting."; exit 1; }
+    ANACONDA=Anaconda3-2023.07-2-Linux-x86_64.sh
+    wget https://repo.anaconda.com/archive/$ANACONDA
+    prefix=""
+    if [[ $(hostname -f) != *"uni-saarland.de" ]]; then
+        read -ep $'Anaconda3 will now be installed into this location:\n${HOME}/anaconda3\n\nPress enter to confirm or specify another location: ' prefix
+        if [ $prefix != $'\n' ]; then 
+            bash $ANACONDA -bp $prefix
+        else
+            bash $ANACONDA -b
+        fi
     else
-        bash Anaconda3-2023.07-1-Linux-x86_64.sh -b
+        echo -e ${GREEN}host is uni.saarland.de, installing Anaconda3 in /local/$USER/anaconda3${NC}
+        bash $ANACONDA -bp /local/$USER/anaconda3
+        prefix="/local/$USER/anaconda3"
     fi
-else
-    echo -e ${GREEN}host is uni.saarland.de, installing Anaconda in /local/$USER/anaconda3${NC}
-    bash Anaconda3-2023.07-1-Linux-x86_64.sh -bp /local/$USER/anaconda3
-fi
-rm -f Anaconda3-2023.07-1-Linux-x86_64.sh
-source ~/.bashrc 
-echo -e ${GREEN}Looking for Anaconda updates...${NC}
-conda update conda
+    rm -f $ANACONDA
+    printf "\n# Anaconda3 path\nexport PATH=$prefix/bin:$PATH\n" >> $HOME/.bashrc
+    conda init
+    source ~/.bashrc
+}
+
+hash conda 2>/dev/null || install_conda
+
+echo -e ${GREEN}Looking for Anaconda3 updates...${NC}
+conda update conda -y
 echo -e ${GREEN}Creating anaconda environment "dl-in-dh"...${NC}
 conda env create --file environment.yml
 conda activate dl-in-dh
